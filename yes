@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int power(int base, int pow);
+int fact(int numeric);
+float my_exp(int x, int y);
+
+int main()
+{
+printf("\n%.7f", my_exp(1, 10));
+return 0;
+}
+
+int power(int base, int pow)
+{
+int start_base = base;
+for (int i = 0; i < (pow - 1); i++) {
+base *= start_base;
+}
+return base;
+}
+int fact(int numeric)
+{
+int fact = 1;
+for (int i = 1; i < (numeric + 1); i++)
+fact *= i;
+return fact;
+}
+float my_exp(int x, int y)
+{
+float exp_res = 0;
+for (int i = 1; i <= y; i++) {
+float a = power(x, i);
+float b = fact(i);
+exp_res += (a / b);
+}
+exp_res += 1;
+
+return exp_res;
+}
